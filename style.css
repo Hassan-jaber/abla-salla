@@ -1,0 +1,1384 @@
+
+:root {
+    --blush: #f5c0c0;
+    --blush-light: #fce8e8;
+    --blush-soft: #fdf3f3;
+    --pink: #e8a0a0;
+    --pink-dark: #d4777a;
+    --rose: #c9636a;
+    --beige: #f7ede3;
+    --beige-dark: #eeddd0;
+    --cream: #fef8f3;
+    --warm-white: #fffaf8;
+    --text-dark: #2a1a1a;
+    --text-mid: #5a3838;
+    --text-light: #9b6b6b;
+    --gold: #e8c97a;
+    --gold-dark: #c9a84c;
+    --shadow-soft: 0 8px 40px rgba(200,100,100,0.12);
+    --shadow-card: 0 4px 24px rgba(200,100,100,0.1);
+    --radius: 20px;
+    --radius-lg: 32px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    direction: rtl;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ━━━━━━━━━━ SCROLL ANIMATIONS ━━━━━━━━━━ */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .fade-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+/* ━━━━━━━━━━━━━━━━━━━ HERO SECTION ━━━━━━━━━━━━━━━━━━━ */
+
+.hero{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f7d6d4 0%,
+      #fbe5df 35%,
+      #fff3ee 100%
+    );
+
+  padding: 0;
+}
+
+
+/* الخلفية الجانبية */
+.hero::before{
+  content: "";
+
+  position: absolute;
+
+  top: -10%;
+  left: -15%;
+
+  width: 45vw;
+  height: 120%;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(176, 24, 24, 0.55) 0%,
+      rgba(176, 24, 24, 0.25) 30%,
+      transparent 70%
+    );
+
+  filter: blur(25px);
+
+  transform: rotate(-12deg);
+
+  z-index: 1;
+}
+
+
+/* ━━━━━━━━━ المنتجات ━━━━━━━━━ */
+
+.hero-products{
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+}
+
+.hero-products img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* ━━━━━━━━━ النص العلوي ━━━━━━━━━ */
+
+.hero-top{
+  position: absolute;
+
+  top: 7%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 900px;
+
+  text-align: center;
+
+  z-index: 5;
+
+  padding: 0 20px;
+}
+
+
+/* العنوان */
+.hero-title{
+  font-size: clamp(2rem, 5vw, 4.2rem);
+
+  font-weight: 900;
+
+  color: #000;
+
+  line-height: 1.3;
+
+  margin-bottom: 22px;
+
+  font-family: 'Tajawal', sans-serif;
+}
+
+
+/* السطر الثاني */
+.subtitle-wrapper{
+  position: relative;
+
+  display: inline-block;
+}
+
+
+/* الخط الأبيض خلف النص */
+.subtitle-wrapper::before{
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 58%;
+
+  transform: translate(-50%, -50%);
+
+  width: 108%;
+  height: 22px;
+
+  background: #FDF7D6;
+
+  border-radius: 50px;
+
+  z-index: -1;
+}
+
+
+/* النص */
+.hero-subtitle{
+  font-size: clamp(1.4rem, 3vw, 2.8rem);
+
+  font-weight: 500;
+
+  color: #111;
+
+  line-height: 1.6;
+
+  font-family: 'Tajawal', sans-serif;
+}
+
+
+/* ━━━━━━━━━ النص السفلي ━━━━━━━━━ */
+
+.hero-bottom{
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 6;
+
+  text-align: center;
+
+  padding:
+    90px 20px 40px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.45) 25%,
+      rgba(255,255,255,0.75) 55%,
+      rgba(255,255,255,0.92) 80%,
+      #ffffff 100%
+    );
+}
+
+
+/* النص السفلي */
+.hero-bottom p{
+  font-size: clamp(1rem, 2vw, 2rem);
+
+  line-height: 1.9;
+
+  color: #111;
+
+  font-weight: 500;
+
+  margin-bottom: 16px;
+
+  font-family: 'Tajawal', sans-serif;
+}
+
+
+/* النص الوردي */
+.hero-bottom span{
+  display: block;
+
+  font-size: clamp(1.2rem, 2.5vw, 2.4rem);
+
+  color: #efacb0;
+
+  font-weight: 800;
+
+  line-height: 1.6;
+
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━ DESKTOP FIX ━━━━━━━━━━━━━━━━━━━ */
+
+/* فقط للديسكتوب */
+@media (min-width: 769px){
+
+  .hero{
+    height: 100vh;
+    min-height: 900px;
+  }
+
+  /* تصغير الصورة حتى تظهر كاملة بدون scroll */
+  .hero-products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+  }
+
+  .hero-products img{
+    width: 88%;
+    max-width: 1150px;
+
+    height: auto;
+    object-fit: contain;
+
+    margin-top: 40px;
+  }
+
+  /* رفع النص السفلي شوي */
+  .hero-bottom{
+    padding:
+      70px 20px 28px;
+  }
+
+  /* تصغير بسيط للنصوص */
+  .hero-title{
+    font-size: clamp(2.5rem, 4vw, 4rem);
+  }
+
+  .hero-subtitle{
+    font-size: clamp(1.4rem, 2vw, 2.3rem);
+  }
+
+  .hero-bottom p{
+    font-size: clamp(1rem, 1.4vw, 1.6rem);
+  }
+
+  .hero-bottom span{
+    font-size: clamp(1.1rem, 1.8vw, 2rem);
+  }
+}
+/* ━━━━━━━━━━━━━━━━━━━ TABLET ━━━━━━━━━━━━━━━━━━━ */
+
+@media (max-width: 768px){
+
+  .hero{
+    aspect-ratio: 9 / 16;
+    min-height: auto;
+  }
+
+  .hero::before{
+    width: 70vw;
+    left: -35%;
+  }
+
+  .hero-top{
+    top: 5%;
+    padding: 0 18px;
+  }
+
+  .hero-title{
+    font-size: 2rem;
+    margin-bottom: 16px;
+  }
+
+  .hero-subtitle{
+    font-size: 1.25rem;
+  }
+
+  .subtitle-wrapper::before{
+    height: 14px;
+  }
+
+  .hero-bottom{
+    padding:
+      80px 18px 30px;
+  }
+
+  .hero-bottom p{
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .hero-bottom span{
+    font-size: 1.1rem;
+  }
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━ MOBILE ━━━━━━━━━━━━━━━━━━━ */
+
+@media (max-width: 480px){
+
+  .hero{
+    aspect-ratio: 9 / 16;
+  }
+
+  .hero-top{
+    top: 5%;
+  }
+
+  .hero-title{
+    font-size: 1.9rem;
+    line-height: 1.4;
+  }
+
+  .hero-subtitle{
+    font-size: 1.15rem;
+  }
+
+  .subtitle-wrapper::before{
+    height: 12px;
+  }
+
+  .hero-bottom{
+    padding:
+      70px 16px 24px;
+  }
+
+  .hero-bottom p{
+    font-size: .95rem;
+  }
+
+  .hero-bottom span{
+    font-size: 1rem;
+  }
+}
+  /* ━━━━━━━━━━ PRODUCT SHOWCASE ━━━━━━━━━━ */
+
+.product-showcase {
+  padding: 80px 20px;
+  background: #FFFFFF;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* العنوان العلوي */
+.showcase-heading {
+    width: 100%;
+  margin-bottom: 40px;
+  position: absolute;
+    z-index: 9999;
+    left: 50%;
+    transform: translateX(-50%) !important;
+}
+
+.showcase-heading h2 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.5;
+  font-weight: 800;
+  color: #e79b9b;
+  margin: 0;
+}
+
+.showcase-heading h2 span {
+  display: inline-block;
+  background: #f5edb7;
+  padding: 6px 18px;
+  border-radius: 14px;
+  margin-top: 10px;
+}
+.why-section .why-title{
+      display: inline-block;
+  background: #FEFBE8;
+  padding: 6px 18px;
+  border-radius: 14px;
+  margin-top: 10px;
+}
+/* الصورة */
+.showcase-image {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto 50px;
+}
+
+.showcase-image img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+/* الخلفيات الوردية */
+/* .showcase-image::before,
+.showcase-image::after {
+  content: "";
+  position: absolute;
+  background: rgba(231, 155, 155, 0.18);
+  border-radius: 50%;
+  z-index: 1;
+  filter: blur(2px);
+}
+
+.showcase-image::before {
+  width: 220px;
+  height: 220px;
+  left: -40px;
+  top: 60px;
+}
+
+.showcase-image::after {
+  width: 260px;
+  height: 260px;
+  right: -50px;
+  bottom: 40px;
+} */
+
+/* النص السفلي */
+.showcase-text {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.showcase-text p {
+  font-size: clamp(1.1rem, 3vw, 2rem);
+  font-weight: 500;
+  color: #111;
+  line-height: 2;
+  margin-bottom: 18px;
+}
+
+.showcase-text strong {
+  font-weight: 800;
+}
+
+.showcase-text .highlight-pink {
+  font-size: clamp(1.3rem, 4vw, 2.4rem);
+  font-weight: 800;
+  color: #000;
+}
+
+/* ━━━━━━━━━━ Responsive ━━━━━━━━━━ */
+
+@media (max-width: 768px) {
+
+  .product-showcase {
+    padding: 60px 16px;
+  }
+
+  .showcase-heading {
+    margin-bottom: 25px;
+    
+  }
+  .showcase-heading h2 {
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+  }
+  .showcase-heading h2 span {
+    padding: 5px 12px;
+    border-radius: 10px;
+  }
+
+  .showcase-image {
+    margin-bottom: 35px;
+  }
+
+  .showcase-image::before {
+    width: 120px;
+    height: 120px;
+    left: -20px;
+    top: 40px;
+  }
+
+  .showcase-image::after {
+    width: 140px;
+    height: 140px;
+    right: -20px;
+    bottom: 20px;
+  }
+
+  .showcase-text p {
+    line-height: 1.9;
+  }
+
+}
+  /* ━━━━━━━━━━ EMOTIONAL SECTION ━━━━━━━━━━ */
+  .emotional {
+    padding: 60px 20px;
+    background: #fff;
+    text-align: center;
+  }
+
+  .emotional-title {
+    font-size: clamp(2rem, 7vw, 3.2rem);
+    font-weight: 900;
+    color: var(--pink-dark);
+    line-height: 1.3;
+    margin-bottom: 30px;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .emotional-title .highlight-bg {
+    background: #fff9d6;
+    padding: 2px 12px;
+    border-radius: 8px;
+  }
+
+  .emotional-body {
+    font-size: clamp(1rem, 3.2vw, 1.3rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.9;
+    max-width: 620px;
+    margin: 0 auto 30px;
+  }
+
+  .emotional-body .bold-line {
+    font-weight: 800;
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+  }
+
+  .emotional img {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ━━━━━━━━━━ WHY SECTION ━━━━━━━━━━ */
+  .why-section {
+    padding: 60px 20px;
+    background: var(--warm-white);
+    text-align: center;
+  }
+
+  .why-title {
+    font-size: clamp(2rem, 7vw, 3rem);
+    font-weight: 900;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-bottom: 8px;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .why-sub {
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+    color: var(--pink-dark);
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  .why-image {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto 40px;
+    border-radius: var(--radius);
+  }
+
+  /* ━━━━━━━━━━ FEATURES CARDS ━━━━━━━━━━ */
+  .features {
+    padding: 60px 20px;
+    background: #fff;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+/* الكارد الأخير بالنص */
+.features-grid .feature-card:last-child{
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 350px;
+  width: 100%;
+}
+  .feature-card {
+    background: var(--blush-soft);
+    border: 1.5px solid var(--blush);
+    border-radius: var(--radius);
+    padding: 28px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+  }
+
+  .feature-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 16px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .feature-icon::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    background: var(--blush-light);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  .feature-icon img {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+  }
+
+  .feature-title {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: 700;
+    color: var(--pink-dark);
+    margin-bottom: 10px;
+  }
+
+  .feature-desc {
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* ━━━━━━━━━━ TRUST BADGE ━━━━━━━━━━ */
+  .trust-badge-section {
+    padding: 20px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+  }
+
+  .trust-badge {
+    text-align: center;
+    max-width: 300px;
+  }
+.testimonials-header h1{
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials-header h1::before{
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 150%; /* زود الرقم حسب الحجم اللي بدك ياه */
+  height: 90%;
+
+  transform: translate(-50%, -50%);
+
+  background: rgba(240, 180, 185, 0.55);
+
+  filter: blur(12px);
+
+  border-radius: 16px;
+
+  z-index: -1;
+}
+  .trust-badge .badge-circle {
+    width: 150px;
+    height: 150px;
+    background: var(--blush-soft);
+    border: 2.5px solid var(--pink);
+    border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .trust-badge .badge-circle::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border: 2px dashed var(--pink);
+    border-radius: 50%;
+  }
+
+  .badge-inner-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--pink-dark);
+    margin-bottom: 2px;
+  }
+
+  .badge-main-text {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--pink-dark);
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  /* ━━━━━━━━━━ TESTIMONIALS SECTION ━━━━━━━━━━ */
+  .testimonials {
+    padding: 60px 20px;
+    /* background: var(--blush-soft); */
+    text-align: center;
+  }
+
+  .testimonials-header {
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+
+  .testimonials-header p {
+    font-size: clamp(1rem, 3.2vw, 1.3rem);
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .circular-text-container {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    margin: 0 auto 40px;
+  }
+
+  .circular-text-container .center-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f7ead0;
+  }
+
+  .circular-text-container .center-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .circular-text-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .review-card {
+    background: white;
+    border: 1.5px solid var(--blush);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    text-align: right;
+    box-shadow: var(--shadow-card);
+    position: relative;
+  }
+
+  .review-card::before {
+    content: '';
+    position: absolute;
+    top: -1.5px;
+    right: 30px;
+    width: 40px;
+    height: 3px;
+    background: var(--pink-dark);
+    border-radius: 2px;
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .reviewer-info {
+    text-align: right;
+  }
+
+  .reviewer-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+
+  .stars {
+    color: var(--pink-dark);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+
+  .reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .reviewer-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .review-text {
+    font-size: clamp(0.95rem, 3vw, 1.1rem);
+    color: var(--text-mid);
+    line-height: 1.8;
+    text-align: center;
+  }
+
+  /* ━━━━━━━━━━ PRODUCT EXPLANATION ━━━━━━━━━━ */
+  .product-explain {
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-explain.bg-blush {
+    background: linear-gradient(135deg, var(--blush-soft) 0%, var(--beige) 100%);
+  }
+
+  .product-explain.bg-white {
+    background: white;
+  }
+
+  .product-explain-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 700px;
+    margin: 0 auto;
+    gap: 30px;
+    flex-direction: row-reverse;
+  }
+
+  .product-explain-inner.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .product-explain-text {
+    flex: 1;
+    text-align: right;
+  }
+
+  .product-explain-text .product-name {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    font-weight: 800;
+    color: var(--pink-dark);
+    margin-bottom: 10px;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .product-explain-text .product-desc {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.8;
+  }
+
+  .product-explain-img {
+    flex: 0 0 160px;
+    text-align: center;
+  }
+
+  .product-explain-img img {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 20px rgba(200,100,100,0.2));
+    transition: transform 0.4s ease;
+  }
+
+  .product-explain-img img:hover {
+    transform: scale(1.05) rotate(2deg);
+  }
+
+  /* ━━━━━━━━━━ USAGE STEPS ━━━━━━━━━━ */
+  .usage-steps {
+    padding: 60px 20px;
+    background: linear-gradient(160deg, var(--blush) 0%, #e8a0a0 100%);
+    text-align: center;
+    color: white;
+  }
+
+  .usage-steps-title {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-weight: 900;
+    margin-bottom: 8px;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .usage-steps-sub {
+    font-size: clamp(1.3rem, 4.5vw, 2rem);
+    font-weight: 800;
+    margin-bottom: 30px;
+  }
+
+  .big-number {
+    font-size: clamp(5rem, 20vw, 10rem);
+    font-weight: 900;
+    color: rgba(255,255,255,0.25);
+    line-height: 1;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .usage-steps img {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ━━━━━━━━━━ PRODUCT DETAILS SECTIONS ━━━━━━━━━━ */
+  .step-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .step-section img.full-width {
+    width: 100%;
+    display: block;
+  }
+
+  .step-section-content {
+    padding: 50px 20px;
+    position: relative;
+  }
+
+  /* ━━━━━━━━━━ GUARANTEE / TRUST ━━━━━━━━━━ */
+  .guarantee-section {
+    padding: 60px 20px;
+    background: #fff;
+  }
+
+  .guarantee-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .guarantee-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+  }
+
+  .guarantee-stamp {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blush) 0%, var(--pink-dark) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .guarantee-stamp::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 2.5px dashed rgba(200,100,100,0.5);
+    border-radius: 50%;
+  }
+
+  .guarantee-stamp .stamp-text-small {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+
+  .guarantee-stamp .stamp-text-main {
+    font-size: 1.4rem;
+    font-weight: 900;
+    font-family: 'Tajawal', sans-serif;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .guarantee-stamp .stars-row {
+    font-size: 0.9rem;
+    margin-top: 6px;
+    letter-spacing: 3px;
+  }
+
+  .guarantee-product-img {
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .guarantee-product-img img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .trust-title {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.3;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .trust-title .pink-highlight {
+    color: var(--pink-dark);
+    background: #FFFCE6;
+    padding: 2px 12px;
+    border-radius: 8px;
+  }
+
+  .trust-body {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin: 20px auto 40px;
+    max-width: 580px;
+  }
+
+  /* ━━━━━━━━━━ CERTIFICATES ━━━━━━━━━━ */
+  .certificates {
+    padding: 40px 20px;
+    background: var(--blush-soft);
+  }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cert-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    padding: 16px;
+  }
+
+  .cert-card img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+
+  /* ━━━━━━━━━━ FREE GIFT SECTION ━━━━━━━━━━ */
+  .gift-section {
+    background: #fff;
+    text-align: center;
+  }
+  .gift-image {
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin: 0 auto 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ━━━━━━━━━━ BEFORE/AFTER SECTION ━━━━━━━━━━ */
+  .before-after {
+    padding: 60px 20px;
+    background: var(--warm-white);
+    text-align: center;
+  }
+
+  .ba-title {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-weight: 900;
+    color: var(--pink-dark);
+    line-height: 1.3;
+    margin-bottom: 20px;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .ba-curved-text {
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-bottom: 30px;
+  }
+
+  .ba-image {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto;
+    border-radius: var(--radius);
+  }
+
+  /* ━━━━━━━━━━ GUARANTEE PROMISE ━━━━━━━━━━ */
+  .guarantee-promise {
+    padding: 60px 20px;
+    background: #fff;
+    text-align: center;
+  }
+
+  .gp-curved-text {
+    font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+    font-weight: 900;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin-bottom: 30px;
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .gp-image {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto 30px;
+    border-radius: var(--radius);
+  }
+
+  /* ━━━━━━━━━━ FINAL CTA SECTION ━━━━━━━━━━ */
+  .final-cta {
+    padding: 60px 20px;
+    background: var(--blush-soft);
+    text-align: center;
+  }
+
+  .cta-product-img {
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto 40px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--pink-dark) 0%, var(--rose) 100%);
+    color: white;
+    font-family: 'Cairo', sans-serif;
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    font-weight: 700;
+    padding: 18px 50px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(200,80,100,0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing: 1px;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(200,80,100,0.45);
+  }
+
+  /* ━━━━━━━━━━ SECTION TITLES SHARED ━━━━━━━━━━ */
+  .section-title {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-weight: 900;
+    color: var(--text-dark);
+    line-height: 1.3;
+    margin-bottom: 20px;
+    font-family: 'Tajawal', sans-serif;
+    text-align: center;
+  }
+
+  .section-title.pink {
+    color: var(--pink-dark);
+  }
+
+  .section-divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pink-dark), var(--blush));
+    border-radius: 4px;
+    margin: 0 auto 30px;
+  }
+
+  /* ━━━━━━━━━━ FULL WIDTH IMAGE SECTIONS ━━━━━━━━━━ */
+  .full-img-section img {
+    width: 100%;
+    display: block;
+  }
+
+  /* ━━━━━━━━━━ PAYMENT METHODS ━━━━━━━━━━ */
+  .payment-section {
+    padding: 30px 20px;
+    background: white;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .payment-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    border: 1px solid #eee;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .payment-logo {
+    font-weight: 900;
+    font-size: 1.1rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
+  .payment-logo.tamara {
+    background: #3d2314;
+    color: white;
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 6px 14px;
+  }
+
+  .payment-logo.tabby {
+    background: #3dba6f;
+    color: white;
+    font-size: 1rem;
+    padding: 6px 14px;
+  }
+
+  .payment-logo.mis {
+    background: #2e3a9e;
+    color: white;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+
+  .payment-text {
+    font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    color: var(--text-mid);
+    text-align: right;
+    flex: 1;
+  }
+
+  /* ━━━━━━━━━━ RESPONSIVE ━━━━━━━━━━ */
+  @media (min-width: 768px) {
+    .features-grid {
+      grid-template-columns: 1fr 1fr;
+      max-width: 700px;
+    }
+
+    .cert-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .product-explain-inner {
+      gap: 50px;
+    }
+
+    .product-explain-img img {
+      width: 180px;
+      height: 220px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .product-explain-inner {
+      flex-direction: column !important;
+      text-align: center;
+    }
+
+    .product-explain-text {
+      text-align: center;
+    }
+
+    .guarantee-visual {
+      flex-direction: column;
+    }
+  }
